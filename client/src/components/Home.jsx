@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Home() {
   const [data, setData] = useState([]);
   const [friends, setFriends] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const navigate = useNavigate();
 
@@ -31,26 +32,37 @@ function Home() {
     }
   };
 
+  const filteredFriends = data.filter((friend) =>
+    friend.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="p-4">
       <h1 className="text-6xl font-semibold">Users</h1>
+      <input
+        type="text"
+        placeholder="Search friends..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="mt-4 mb-4 p-2 border border-gray-300 rounded"
+      />
       <ul>
-        {data.map((friend) => (
+        {filteredFriends.map((friend) => (
           <li key={friend._id}></li>
         ))}
       </ul>
 
-      <dl class="max-w-md text-gray-900 ">
-        {data.map((friend) => (
+      <dl className="max-w-md text-gray-900 ">
+        {filteredFriends.map((friend) => (
           <div
             key={friend._id}
-            class="flex pb-3 shadow-lg mt-3 p-3 justify-between items-center"
+            className="flex pb-3 shadow-lg mt-3 p-3 justify-between items-center"
           >
             <div>
-              <dt class="mb-1 text-lg font-semibold text-slate-800 ">
+              <dt className="mb-1 text-lg font-semibold text-slate-800 ">
                 {friend.name}
               </dt>
-              <dd class="text-gray-500 md:text-lg dark:text-gray-400">
+              <dd className="text-gray-500 md:text-lg dark:text-gray-400">
                 {friend.email}
               </dd>
             </div>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 function MyFriends() {
   const [myFriends, setMyFriends] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const getseletedFriends = async () => {
@@ -28,20 +30,31 @@ function MyFriends() {
     }
   };
 
+  const filteredFriends = myFriends.filter((friend) =>
+    friend.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="p-4">
       <h1 className="text-6xl font-semibold">Friends</h1>
+      <input
+        type="text"
+        placeholder="Search friends..."
+        className="mt-4 mb-4 p-2 border border-gray-300 rounded"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <ul>
-        {myFriends.map((friend) => (
+        {filteredFriends.map((friend) => (
           <li key={friend._id}></li>
         ))}
       </ul>
 
       <dl className="max-w-md text-gray-900 ">
-        {myFriends.map((friend) => (
+        {filteredFriends.map((friend) => (
           <div
             key={friend._id}
-            class="flex pb-3 shadow-lg mt-3 p-3 justify-between items-center"
+            className="flex pb-3 shadow-lg mt-3 p-3 justify-between items-center"
           >
             <div>
               <dt className="mb-1 text-lg font-semibold text-slate-800 ">
