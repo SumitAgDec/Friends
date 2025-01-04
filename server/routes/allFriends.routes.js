@@ -1,7 +1,9 @@
 const { Router } = require('express');
-const { getAllFriends } = require('../controllers/friends.controller');
+const { getAllFriends, addFriend } = require('../controllers/friends.controller');
+const { restrictToLoggedInUserOnlt } = require('../middlewares/auth.middlewares');
 const router = Router();
 
-router.use('/all', getAllFriends);
+router.get('/all', restrictToLoggedInUserOnlt, getAllFriends);
+router.post('/add', restrictToLoggedInUserOnlt, addFriend);
 
 module.exports = router;

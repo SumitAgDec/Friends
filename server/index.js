@@ -29,7 +29,7 @@ app.use(
 
 //Routes
 app.use('/api/friends', authRouters)
-app.use('/api', restrictToLoggedInUserOnlt, allFriendRoutes)
+app.use('/api', allFriendRoutes)
 
 
 app.listen(port, () => {
