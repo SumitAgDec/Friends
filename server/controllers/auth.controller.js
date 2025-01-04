@@ -1,3 +1,4 @@
+const { createSignedToken } = require("../authentication/jwt.authentication");
 const Friends = require("../models/friends.model");
 const bcrypt = require('bcrypt');
 
@@ -20,10 +21,14 @@ const getFriend = async (req, res) => {
 
     const match = await bcrypt.compare(password, user.password);
     if (match) {
-        return res.status(200).json({ message: "Login successful" });
+        // return res.status(200).json({ message: "Login successful" });
+        const token = createSignedToken(user);
+
+        return res.cookie("token", token, { httpOnly: true }).json({ message: "Login successful" });
     } else {
         return res.status(401).json({ message: "Invalid email or password" });
     }
+
 
 
 }

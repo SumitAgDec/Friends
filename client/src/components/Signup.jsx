@@ -18,7 +18,7 @@ function Signup() {
         setEmail("");
         setPassword("");
 
-        navigate("/");
+        navigate("/login");
       })
       .catch((err) => {
         console.log(err.message);
