@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -65,13 +66,14 @@ function Login() {
               placeholder="******************"
             />
           </div>
-          <div className="flex items-center justify-between w-full">
+          <div className="flex flex-col gap-4 items-center justify-between w-full">
             <button
               className="bg-blue-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Login
             </button>
+            <Link to="/signup">Don't have an account ?</Link>
           </div>
         </form>
         <h1 className="text-red-500 text-center font-semibold mb-3">{error}</h1>

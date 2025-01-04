@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -27,7 +28,7 @@ function Signup() {
 
   return (
     <div className="flex flex-col gap-5 items-center justify-center h-screen bg-slate-300">
-      <h1 className="text-lg font-semibold">Friends</h1>
+      <h1 className="text-lg font-semibold">Signup</h1>
       <div className="w-full max-w-xs ">
         <form
           onSubmit={handleForm}
@@ -81,13 +82,14 @@ function Signup() {
               placeholder="******************"
             />
           </div>
-          <div className="flex items-center justify-between w-full">
+          <div className="flex flex-col gap-4 items-center justify-between w-full">
             <button
               className="bg-blue-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Sign Up
             </button>
+            <Link to="/login">Already have an account ?</Link>
           </div>
         </form>
         <p className="text-center text-gray-500 text-xs">
