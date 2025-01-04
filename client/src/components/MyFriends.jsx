@@ -25,6 +25,7 @@ function MyFriends() {
     try {
       const res = await axios.post("/api/removeFriend", { friendId });
       setMyFriends(res.data.friends);
+      window.location.reload();
     } catch (error) {
       console.error("Error removing friend:", error);
     }
