@@ -16,16 +16,6 @@ const verifyToken = async (token) => {
     return user;
 }
 
-// const verifyToken = (token) => {
-//     return new Promise((resolve, reject) => {
-//         JWT.verify(token, secret, (err, decoded) => {
-//             if (err) {
-//                 return reject(err); 
-//             }
-//             resolve(decoded); 
-//         });
-//     });
-// };
 
 module.exports = {
     createSignedToken,
