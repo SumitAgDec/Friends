@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";
 import Home from "./components/Home.jsx";
+import MyFriends from "./components/MyFriends.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/myFriends" element={<MyFriends />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
