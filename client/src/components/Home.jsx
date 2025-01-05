@@ -52,7 +52,7 @@ function Home() {
         ))}
       </ul>
 
-      <dl className="max-w-md text-gray-900 ">
+      <dl className="max-w-full text-gray-900 ">
         {filteredFriends.map((friend) => (
           <div
             key={friend._id}

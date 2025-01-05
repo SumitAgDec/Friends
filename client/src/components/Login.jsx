@@ -77,9 +77,6 @@ function Login() {
           </div>
         </form>
         <h1 className="text-red-500 text-center font-semibold mb-3">{error}</h1>
-        <p className="text-center text-gray-500 text-xs">
-          &copy;2025 Acme Corp. All rights reserved.
-        </p>
       </div>
     </div>
   );
